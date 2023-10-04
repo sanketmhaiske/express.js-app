@@ -1,16 +1,21 @@
-var express = require('express');
+const express = require("express");
 const router = express.Router();
-var path = require('path');
 
-const PORT = 4000;
-
-var app = express();
-app.use(express.json());
-
-
-app.get('/', (req, res) => {
-    return res.send('Vercel Product Express app is running.')
-})
-
+/**
+ * GET product list.
+ *
+ * @return product list | empty.
+ */
+router.get("/", async (req, res) => {
+  try {
+    res.json({
+      status: 200,
+      message: "Get data has successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;
