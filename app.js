@@ -2,12 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 const PORT = 8000;
-const api = require('./api')
+const product = require('./api/product')
 
 var app = express();
 app.use(express.json());
 
-app.use('/api', api)
+app.use('/api/product', product)
 
 app.get('/',(req,res)=>{
     console.log('Express app running.')
